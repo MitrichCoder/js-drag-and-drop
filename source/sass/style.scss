@@ -1,0 +1,70 @@
+@import "normalize";
+
+// cursor settings
+$cursor-point-size: 6px;
+$cursor-point-color: red;
+$cursor-line-width: 2px;
+$cursor-line-color: #f5f5f5;
+
+.index {
+  position: relative;
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.cursor-point {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -($cursor-point-size / 2);
+  margin-top: -($cursor-point-size / 2);
+  width: $cursor-point-size;
+  height: $cursor-point-size;
+  background-color: $cursor-point-color;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 17px;
+    top: -16px;
+    left: 6px;
+    opacity: 0.6;
+    background-image: url(../img/pointer.svg);
+    background-repeat: no-repeat;
+  }
+}
+
+.cursor-point__coords {
+  width: 200px;
+  position: absolute;
+  top: -42px;
+  left: 24px;
+  font-family: Roboto;
+  font-size: 10px;
+  color: #777777;
+}
+
+.cursor-line {
+  position: fixed;
+  background-color: $cursor-line-color;
+  z-index: 0;
+}
+
+.cursor-line--vertical {
+  left: 50%;
+  margin-left: -($cursor-line-width / 2);
+  width: $cursor-line-width;
+  height: 100%;
+}
+
+.cursor-line--horizontal {
+  top: 50%;
+  margin-top: -($cursor-line-width / 2);
+  height: $cursor-line-width;
+  width: 100%;
+}
