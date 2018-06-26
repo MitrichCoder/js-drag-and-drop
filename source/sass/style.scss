@@ -6,6 +6,10 @@ $cursor-point-color: red;
 $cursor-line-width: 2px;
 $cursor-line-color: #f5f5f5;
 
+// box settings
+$boxWidth: 100px;
+$boxHeight: $boxWidth;
+
 .index {
   position: relative;
 }
@@ -24,7 +28,7 @@ $cursor-line-color: #f5f5f5;
   width: $cursor-point-size;
   height: $cursor-point-size;
   background-color: $cursor-point-color;
-  z-index: 1;
+  z-index: 2;
 
   &:before {
     content: "";
@@ -52,7 +56,7 @@ $cursor-line-color: #f5f5f5;
 .cursor-line {
   position: fixed;
   background-color: $cursor-line-color;
-  z-index: 0;
+  z-index: 1;
 }
 
 .cursor-line--vertical {
@@ -67,4 +71,22 @@ $cursor-line-color: #f5f5f5;
   margin-top: -($cursor-line-width / 2);
   height: $cursor-line-width;
   width: 100%;
+}
+
+.box {
+  position: fixed;
+  width: $boxWidth;
+  height: $boxHeight;
+  top: 50%;
+  left: 50%;
+  margin-left: -$boxWidth / 2;
+  margin-top: -$boxHeight / 2;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(89, 255, 0, 1);
+  z-index: 5;
+
+  &:hover {
+    cursor: move;
+    background-color: rgba(89, 255, 0, 0.3);
+  }
 }
